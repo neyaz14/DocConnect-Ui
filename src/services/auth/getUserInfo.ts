@@ -9,7 +9,6 @@ export const getUserInfo = async (): Promise<UserInfo | null> => {
 
     try {
         const accessToken = await getCookie("accessToken");
-
         if (!accessToken) {
             return null;
         }
