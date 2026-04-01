@@ -1,3 +1,4 @@
+"use client";
 import { Edit, Eye, Loader2, MoreHorizontal, Trash } from "lucide-react";
 import React from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
@@ -46,11 +47,11 @@ function ManagmentTable<T>(
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            {columns?.map((column, colIndex) => (
-                                <TableHead key={colIndex} className={column.className}>
-                                    {column.header}
-                                </TableHead>
-                            ))}
+                            {
+                                columns?.map((column, colIndex) => (
+                                    <TableHead key={colIndex} className={column.className}>
+                                        {column.header}</TableHead>
+                                ))}
 
                             {hasActions && (
                                 <TableHead className="w-[70px]">Actions</TableHead>
@@ -69,8 +70,8 @@ function ManagmentTable<T>(
                                 </TableCell>
                             </TableRow>
                         ) : (
-                            data?.map((item) => (
-                                <TableRow key={getRowKey(item)}>
+                            data?.map((item, index) => (
+                                <TableRow key={getRowKey ? getRowKey(item) : index}>
                                     {columns.map((col, idx) => (
                                         <TableCell key={idx} className={col.className}>
                                             {typeof col.accessor === "function"
