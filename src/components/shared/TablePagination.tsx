@@ -17,7 +17,7 @@ function TablePagination({ currentPage, totalPages }: TablePaginationProps) {
     const searchParams = useSearchParams();
     const [isPending, startTransition] = useTransition();
 
-    const currentValue = searchParams.get(searchParams.toString()) || "All";
+
 
 
     const navigateToPage = (newPage: number) => {
